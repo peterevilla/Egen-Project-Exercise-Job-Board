@@ -16,7 +16,7 @@ const jobsReducer = (state = initialState, action) => {
       return { ...state, getJobsStatus: requestStatus.loading };
     case GET_JOBS_SUCCESS:
       const newState = action.payload;
-      return { jobs: newState, getJobsStatus: requestStatus.success };
+      return {...state, jobs: newState, getJobsStatus: requestStatus.success };
     case GET_JOBS_ERROR:
       return { ...state, getJobsStatus: requestStatus.error };
 

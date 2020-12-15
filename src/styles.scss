@@ -1,0 +1,178 @@
+$purple: #5865E0;
+$light-gray: #F5F6F8;
+$dark-blue: #131822;
+$light-blue: #19212D;
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.7;
+    font-size: 1rem;
+    background-color: $light-gray;
+    
+    .nav-bar {
+        background-color: $purple;
+        height: 100px;
+        display: flex;
+        justify-content: space-around;
+        color: $light-gray;
+
+        h1 {
+            text-decoration: none;
+            color: $light-gray;
+        }
+    }
+
+    .main {
+        display: flex;
+        flex-wrap: wrap;
+        .card {
+            background-color: white;
+            height: 200px;
+            width: 250px;
+            margin: 5px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            &:hover {
+                background-color: powderblue;
+            }
+            .img-container {
+                height: 50px;
+                height: 50px;
+                img {
+                    height: auto;
+                    width: 50px;
+                    border-radius: 10%;
+                    margin-top: -5px;
+                }
+            }
+            
+            .job-type {
+                font-size: 0.8rem;
+                color: gray;
+                font-weight: lighter;
+                padding: 2%;
+            }
+
+            .job-title {
+                font-weight: bold;
+                color: $light-blue;
+                padding: 2%;
+            }
+            .job-location {
+                font-size: 0.8rem;
+                font-weight: bold;
+                color: $purple;
+                padding: 2%;
+            }
+        }
+    }
+
+    .job-page {
+        display: flex;
+        flex-direction: column;
+        padding-left: 30%;
+        padding-right: 30%;
+        .head-container {
+            display: flex;
+            height: 100px;
+            background-color: white;
+            justify-content: space-around;
+            
+            
+            .image {
+                img {
+                    height: auto;
+                    width: 100px;
+                    border-radius: 10%;
+                    margin-top: 2%;
+                }
+            }
+
+            .company-name {
+                font-weight: bold;
+                color: $light-blue;
+                padding: 2%;
+                margin-top: 2%;
+                font-size: 1.5rem;
+            }
+            .company-site {
+                color: $purple;
+                padding: 2%;
+                margin-top: 2%;
+
+            }
+        }
+
+        .description-container {
+            display: flex;
+            flex-direction: column;
+            background-color: white;
+            height: auto;
+        }
+    }
+
+    
+  }
+
+
+
+
+
+
+
+
+
+
+body.dark-mode {
+    background-color: $dark-blue;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.7;
+    font-size: 1rem;
+    color: $light-gray;
+    .card {
+        background-color: $light-blue;
+        height: 200px;
+        width: 250px;
+        margin: 5px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        &:hover {
+            background-color: $dark-blue;
+        }
+        .img-container {
+            height: 50px;
+            height: 50px;
+            img {
+                height: auto;
+                width: 50px;
+                border-radius: 10%;
+                margin-top: -5px;
+            }
+        }
+        
+        .job-type {
+            font-size: 0.8rem;
+            color: gray;
+            font-weight: lighter;
+            padding: 2%;
+        }
+
+        .job-title {
+            font-weight: bold;
+            color: $light-gray;
+            padding: 2%;
+        }
+        .job-location {
+            font-size: 0.8rem;
+            font-weight: bold;
+            color: $purple;
+            padding: 2%;
+        }
+    }
+}
+
+/**
+.Light Theme: Purple: #5865E0, Light Gray:#F5F6F8, White: #FFFFFF2.Dark Theme: Purple: #5865E0, DarkBlue: #131822, Light Blue: #19212D
+**/

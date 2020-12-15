@@ -1,45 +1,66 @@
-import React, {useEffect} from 'react'
-import { connect } from 'react-redux';
-import getJobs from '../../state/actions/getJobs'
-import JobCard from '../jobCard/JobCard'
-import {
+import React, { useEffect, useState } from "react";
+import { connect } from "react-redux";
+import getJobs from "../../state/actions/getJobs";
+import JobCard from "../jobCard/JobCard";
+import { Link, Route } from "react-router-dom";
+import '../../styles.scss';
 
-    Link,
-    Route,
+const MainPage = ({ status, jobs, getJobs }) => {
+  const [isBottom, setIsBottom] = useState(false);
+  const [allJobs, setAlljobs] = useState(jobs)
+
+  useEffect(() => {
+    getJobs({ page: 0, description: "", location: "", type: "true" });
+    setAlljobs(jobs)
+    setIsBottom(false);
+  }, []);
   
-  } from "react-router-dom";
-  import JobPage from '../jobPage/JobPage'
-
-const MainPage = ({status, jobs, getJobs}) => {
-
-    useEffect(() => {
-        getJobs(1, {description: "", location: "", type: "true"})
-    },[])
-    console.log(jobs)
-
-    if(status === "loading") {
-        return (
-            <p>loading...</p>
-        )
+  function handleScroll() {
+    const scrollTop =
+      (document.documentElement && document.documentElement.scrollTop) ||
+      document.body.scrollTop;
+    const scrollHeight =
+      (document.documentElement && document.documentElement.scrollHeight) ||
+      document.body.scrollHeight;
+    if (scrollTop + window.innerHeight + 50 >= scrollHeight) {
+      setIsBottom(true);
     }
-    return (
-        <div>
-            {jobs.map(job => (
-                <Link to={`/${job.id}`}><JobCard key={job.id} job={job}/></Link>
-            ))}
-             <Route
-            path="/:id"
-            render={(routeProps) => {
-              return <JobPage match={routeProps.match} jobs={jobs} />;
-            }}
-          />
-        </div>
-    )
-}
+  }
 
-const mapStateToProps = state => ({
-    jobs: state.jobs.jobs,
-    status: state.jobs.getJobsStatus, 
-  });
-  
-  export default connect(mapStateToProps, { getJobs})(MainPage);
+  useEffect(() => {
+    if (isBottom) {
+      getJobs({ page: 2, description: "", location: "", type: "true" });
+      
+    }
+    setAlljobs(allJobs.concat(jobs))
+    // setIsBottom(false);
+  }, [isBottom]);
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+console.log(jobs)
+  return (
+    <div>
+        <div className="main">
+      {jobs.map((job) => (
+          
+        <Link style={{ textDecoration: 'none' }} to={`/${job.id}`}>
+          <JobCard key={job.id} job={job} />
+        </Link>
+      ))}
+      </div>
+      {status === "loading" && <p>loading more jobs...</p>}
+     
+    </div>
+  );
+};
+
+const mapStateToProps = (state) => ({
+  jobs: state.jobs.jobs,
+  status: state.jobs.getJobsStatus,
+});
+
+export default connect(mapStateToProps, { getJobs })(MainPage);

@@ -4,7 +4,7 @@ export const GET_JOBS_SUCCESS = 'GET_JOBS_SUCCESS';
 export const GET_JOBS_ERROR = 'GET_JOBS_ERROR';
 
 
-const getJobs = (page, params) => dispatch => {
+const getJobs = (params) => dispatch => {
 
   
   
@@ -14,7 +14,7 @@ const getJobs = (page, params) => dispatch => {
 
         axios
         .get(
-            `https://jobs.github.com/positions.json?page=${page}&description=${params.description}&location=${params.location}&search=code`
+            `https://jobs.github.com/positions.json?page=${params.page}&description=${params.description}&location=${params.location}&search=code`
         )
           .then(response => {
            

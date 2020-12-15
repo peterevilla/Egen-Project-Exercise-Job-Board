@@ -1,4 +1,5 @@
 import React from 'react'
+import '../../styles.scss';
 
 
 const JobPage = (props) => {
@@ -8,8 +9,16 @@ const JobPage = (props) => {
       return job.id === paramJobId;
     });
     return (
-        <div>
-            {job.description}
+        <div className="job-page">
+            <div className="head-container">
+            <div className="image"><img src={`${job.company_logo}`}></img></div>
+            <div className="company-name">{job.company}</div>
+            <a style={{ textDecoration: 'none' }} href={`${job.company_url}`} className="company-site">Company site</a>
+            </div>
+
+            <div className="description-container">
+                {job.description}
+            </div>
         </div>
     )
 }

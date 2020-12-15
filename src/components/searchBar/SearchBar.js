@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import getJobs from '../../state/actions/getJobs'
 
 const SearchBar = ({getJobs, status}) => {
-    const [ params, setParams] = useState({description: "", location: "", type: "true"})
+    const [ params, setParams] = useState({page: 0, description: "", location: "", type: "true"})
 
     const searchHandle = e => {
         setParams({ ...params, [e.target.name]: e.target.value});
@@ -11,8 +11,7 @@ const SearchBar = ({getJobs, status}) => {
       };
       const submitHandler = (e) => {
           e.preventDefault()
-          getJobs(0, params)
-          console.log(params);
+          getJobs(params)
         
       };
     return (
