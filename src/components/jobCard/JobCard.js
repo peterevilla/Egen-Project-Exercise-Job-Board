@@ -1,9 +1,9 @@
 import React from 'react'
 
-const JobCard = () => {
+const JobCard = ({job}) => {
     return (
         <div>
-            Job Card
+            {job.company}
         </div>
     )
 }
