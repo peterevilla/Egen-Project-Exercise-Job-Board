@@ -1,15 +1,51 @@
 import React, {useState} from 'react'
+import { connect } from 'react-redux';
+import getJobs from '../../state/actions/getJobs'
 
-const SearchBar = () => {
-    const [ params, setParams] = useState({description: "", location: "", type: ""})
+const SearchBar = ({getJobs, status}) => {
+    const [ params, setParams] = useState({description: "", location: "", type: "true"})
+
+    const searchHandle = e => {
+        setParams({ ...params, [e.target.name]: e.target.value});
+        
+      };
+      const submitHandler = (e) => {
+          e.preventDefault()
+          getJobs(0, params)
+          console.log(params);
+        
+      };
     return (
-        <form>
-            <input></input>
-            <input></input>
-            <input></input>
+        <form  onSubmit={submitHandler}> 
+            <input
+            type="text"
+            name="description"
+            value={params.description}
+            placeholder="Filter by title, companies, description..."
+            onChange={searchHandle} 
+
+            ></input>
+            <input
+            type="text"
+             name="location"
+             value={params.location}
+             placeholder="Location"
+             onChange={searchHandle} 
+            ></input>
+            {/* <input type="radio"
+            checked={params.type.value === "true"}
+            value={params.type}
+            placeholder="Full time only"
+            onChange={searchHandle}
+            ></input> */}
+            <button type="submit" >Search</button>
             
         </form>
     )
 }
 
-export default SearchBar
+const mapStateToProps = state => ({
+    status: state.jobs.getJobsStatus, 
+  });
+  
+  export default connect(mapStateToProps, { getJobs})(SearchBar);

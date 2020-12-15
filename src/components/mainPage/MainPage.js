@@ -13,7 +13,7 @@ import {
 const MainPage = ({status, jobs, getJobs}) => {
 
     useEffect(() => {
-        getJobs(1)
+        getJobs(1, {description: "", location: "", type: "true"})
     },[])
     console.log(jobs)
 
