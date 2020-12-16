@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 const NavBar = () => {
   const [themeState, setThemeState] = useState(true);
 
+  //DARKMODE HANLDER
   const handleChange = () => {
     setThemeState(!themeState);
     if (themeState) {

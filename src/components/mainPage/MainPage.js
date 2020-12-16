@@ -10,6 +10,7 @@ const MainPage = ({ status, jobs, getJobs }) => {
   //   const [pageNumber, setPageNumber] = useState(1)
   const pageNumber = useRef(1);
 
+  //FETCHING DATA ONCE PAGE RENDERS
   useEffect(() => {
     getJobs({
       page: pageNumber.current,
@@ -21,6 +22,7 @@ const MainPage = ({ status, jobs, getJobs }) => {
     // setIsBottom(false);
   }, []);
 
+  //FUNCTION TO HANDLE SCROLLING EVENT ONCE PAGE HITS BOTTOM
   function handleScroll() {
     const scrollTop =
       (document.documentElement && document.documentElement.scrollTop) ||
@@ -32,7 +34,7 @@ const MainPage = ({ status, jobs, getJobs }) => {
       setIsBottom(true);
     }
   }
-
+//FETCHING DATA ONCE THE PAGE HITS BOTTOM
   useEffect(() => {
     if (isBottom) {
       getJobs({
