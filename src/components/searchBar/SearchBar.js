@@ -18,7 +18,7 @@ const SearchBar = ({getJobsSearch, status}) => {
         
       };
     return (
-        <form  onSubmit={submitHandler}> 
+        <form className="form-container"  onSubmit={submitHandler}> 
             <input
             type="text"
             name="description"

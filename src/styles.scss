@@ -13,32 +13,35 @@ body {
       }
     @media only screen and (max-width: 600px) {
 
+        .form-container{
+            padding-left: 20%;
+            padding-right: 20%;
+        }
         .main {
             justify-content: center;
         }
         .job-page {
-            display: flex;
-            height: 100px;
-            width: 100%;
-            margin-right: 20%;
+
+          
+            .description-container {
+    
+                flex-direction: column;
+                background-color: white;
+                height: auto;
+                text-align: justify;
+                width: 100%;
+    
+                
+            }
         }
 
-        .description-container {
-            display: flex;
-            flex-direction: column;
-            background-color: white;
-            height: auto;
-            text-align: justify;
-            width: 100%;
-            
-        }
+       
 
     }
 
-
-
-
-   .form {
+.form-container{
+    margin: 0.5%;
+    .form {
     
         background-color: #fafafa;
         border:0;
@@ -46,11 +49,17 @@ body {
         transition: .3s box-shadow;
         height: 30px;
         width: 200px;
+        font-size: x-small;
+        
 
       &:hover {
         box-shadow:0 0 4px rgba(0,0,0,0.5);
       }
    }
+}
+
+
+  
 
    .search-btn {
        height: 30px;
