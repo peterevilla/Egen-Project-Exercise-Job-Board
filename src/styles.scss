@@ -8,6 +8,9 @@ body {
     line-height: 1.7;
     font-size: 1rem;
     background-color: $light-gray;
+    .App {
+        text-align: center;
+      }
     @media only screen and (max-width: 600px) {
 
         .main {
@@ -31,7 +34,30 @@ body {
         }
 
     }
-   
+
+
+
+
+   .form {
+    
+        background-color: #fafafa;
+        border:0;
+        box-shadow:0 0 4px rgba(0,0,0,0.3);
+        transition: .3s box-shadow;
+        height: 30px;
+        width: 200px;
+
+      &:hover {
+        box-shadow:0 0 4px rgba(0,0,0,0.5);
+      }
+   }
+
+   .search-btn {
+       height: 30px;
+       background-color: $purple;
+       color: $light-gray;
+       border: none;
+   }
     p.dark-mode {
         height: 50px;
         margin-top: 35px;

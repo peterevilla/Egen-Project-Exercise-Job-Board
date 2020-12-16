@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { connect } from "react-redux";
 import getJobs from "../../state/actions/getJobs";
 import JobCard from "../jobCard/JobCard";
@@ -7,11 +7,12 @@ import '../../styles.scss';
 
 const MainPage = ({ status, jobs, getJobs }) => {
   const [isBottom, setIsBottom] = useState(false);
-  const [pageNumber, setPageNumber] = useState(1)
+//   const [pageNumber, setPageNumber] = useState(1)
+  const pageNumber = useRef(1)
 
   useEffect(() => {
-    getJobs({ page: pageNumber, description: "", location: "", type: "true" });
-    setPageNumber(pageNumber + 1)
+    getJobs({ page: pageNumber.current, description: "", location: "", type: "true" });
+    pageNumber.current = pageNumber.current + 1
     setIsBottom(false);
   }, []);
   
@@ -28,11 +29,14 @@ const MainPage = ({ status, jobs, getJobs }) => {
   }
 
   useEffect(() => {
+    
     if (isBottom) {
     
-      getJobs({ page: pageNumber, description: "", location: "", type: "true" });
+      getJobs({ page: pageNumber.current, description: "", location: "", type: "true" });
+    
       
     }
+    
   }, [isBottom]);
 
   useEffect(() => {
@@ -40,7 +44,7 @@ const MainPage = ({ status, jobs, getJobs }) => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-console.log(pageNumber)
+console.log(pageNumber.current)
   return (
     <div>
         <div className="main">
@@ -52,6 +56,7 @@ console.log(pageNumber)
       ))}
       </div>
       {status === "loading" && <p>loading jobs...</p>}
+      {jobs.length === 0 && status !=="loading" && <p>No jobs found</p>}
      
     </div>
   );

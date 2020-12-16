@@ -2,9 +2,11 @@ import React, {useState} from 'react'
 import { connect } from 'react-redux';
 import getJobsSearch from '../../state/actions/fromSearch';
 import getJobs from '../../state/actions/getJobs'
+import '../../styles.scss';
 
 const SearchBar = ({getJobsSearch, status}) => {
     const [ params, setParams] = useState({page: 0, description: "", location: "", type: "true"})
+
 
     const searchHandle = e => {
         setParams({ ...params, [e.target.name]: e.target.value});
@@ -22,7 +24,9 @@ const SearchBar = ({getJobsSearch, status}) => {
             name="description"
             value={params.description}
             placeholder="Filter by title, companies, description..."
-            onChange={searchHandle} 
+            onChange={searchHandle}
+            className="form"
+          
 
             ></input>
             <input
@@ -31,6 +35,8 @@ const SearchBar = ({getJobsSearch, status}) => {
              value={params.location}
              placeholder="Location"
              onChange={searchHandle} 
+             className="form" 
+
             ></input>
             {/* <input type="radio"
             checked={params.type.value === "true"}
@@ -38,7 +44,7 @@ const SearchBar = ({getJobsSearch, status}) => {
             placeholder="Full time only"
             onChange={searchHandle}
             ></input> */}
-            <button type="submit" >Search</button>
+            <button className="search-btn"  type="submit" >Search</button>
             
         </form>
     )
