@@ -3,19 +3,24 @@ import { connect } from "react-redux";
 import getJobs from "../../state/actions/getJobs";
 import JobCard from "../jobCard/JobCard";
 import { Link, Route } from "react-router-dom";
-import '../../styles.scss';
+import "../../styles.scss";
 
 const MainPage = ({ status, jobs, getJobs }) => {
   const [isBottom, setIsBottom] = useState(false);
-//   const [pageNumber, setPageNumber] = useState(1)
-  const pageNumber = useRef(1)
+  //   const [pageNumber, setPageNumber] = useState(1)
+  const pageNumber = useRef(1);
 
   useEffect(() => {
-    getJobs({ page: pageNumber.current, description: "", location: "", type: "true" });
-    pageNumber.current = pageNumber.current + 1
-    setIsBottom(false);
+    getJobs({
+      page: pageNumber.current,
+      description: "",
+      location: "",
+      type: "true",
+    });
+    pageNumber.current = pageNumber.current + 1;
+    // setIsBottom(false);
   }, []);
-  
+
   function handleScroll() {
     const scrollTop =
       (document.documentElement && document.documentElement.scrollTop) ||
@@ -29,12 +34,14 @@ const MainPage = ({ status, jobs, getJobs }) => {
   }
 
   useEffect(() => {
-    
     if (isBottom) {
-    
-      getJobs({ page: pageNumber.current, description: "", location: "", type: "true" });
-    
-      
+      getJobs({
+        page: pageNumber.current,
+        description: "",
+        location: "",
+        type: "true",
+      });
+      pageNumber.current = pageNumber.current + 1;
     }
     
   }, [isBottom]);
@@ -44,20 +51,18 @@ const MainPage = ({ status, jobs, getJobs }) => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-console.log(pageNumber.current)
+  console.log(pageNumber.current);
   return (
     <div>
-        <div className="main">
-      {jobs.map((job) => (
-          
-        <Link style={{ textDecoration: 'none' }} to={`/${job.id}`}>
-          <JobCard key={job.id} job={job} />
-        </Link>
-      ))}
+      <div className="main">
+        {jobs.map((job) => (
+          <Link style={{ textDecoration: "none" }} to={`/${job.id}`}>
+            <JobCard key={job.id} job={job} />
+          </Link>
+        ))}
       </div>
       {status === "loading" && <p>loading jobs...</p>}
-      {jobs.length === 0 && status !=="loading" && <p>No jobs found</p>}
-     
+      {jobs.length === 0 && status !== "loading" && <p>No jobs found</p>}
     </div>
   );
 };

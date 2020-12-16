@@ -88,6 +88,7 @@ body {
             display: flex;
             flex-direction: column;
             justify-content: space-around;
+            box-shadow:0 0 4px rgba(0,0,0,0.3);
             &:hover {
                 background-color: powderblue;
             }
