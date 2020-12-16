@@ -5,7 +5,7 @@ export const GET_JOBS_ERROR = 'GET_JOBS_ERROR';
 export const GET_JOBS_SUCCESS_SEARCH = 'GET_JOBS_SUCCESS_SEARCH';
 
 
-const getJobs = (params) => dispatch => {
+const getJobsSearch = (params) => dispatch => {
 
   
   
@@ -19,7 +19,7 @@ const getJobs = (params) => dispatch => {
         )
           .then(response => {
            
-            dispatch({ type: GET_JOBS_SUCCESS, payload: response.data });
+            dispatch({ type: GET_JOBS_SUCCESS_SEARCH, payload: response.data });
           })
           .catch(err => {
             dispatch({ type: GET_JOBS_ERROR, payload: err });
@@ -30,4 +30,4 @@ const getJobs = (params) => dispatch => {
   
   };
 
-  export default getJobs;
+  export default getJobsSearch;

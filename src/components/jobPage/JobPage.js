@@ -17,7 +17,8 @@ const JobPage = (props) => {
             </div>
 
             <div className="description-container">
-                {job.description}
+            <div dangerouslySetInnerHTML={{__html: `${job.description}`}} />
+            <div dangerouslySetInnerHTML={{__html: `${job.how_to_apply}`}} />
             </div>
         </div>
     )

@@ -8,7 +8,36 @@ body {
     line-height: 1.7;
     font-size: 1rem;
     background-color: $light-gray;
-    
+    @media only screen and (max-width: 600px) {
+
+        .main {
+            justify-content: center;
+        }
+        .job-page {
+            display: flex;
+            height: 100px;
+            width: 100%;
+            margin-right: 20%;
+        }
+
+        .description-container {
+            display: flex;
+            flex-direction: column;
+            background-color: white;
+            height: auto;
+            text-align: justify;
+            width: 100%;
+            
+        }
+
+    }
+   
+    p.dark-mode {
+        height: 50px;
+        margin-top: 35px;
+
+
+    }
     .nav-bar {
         background-color: $purple;
         height: 100px;
@@ -73,6 +102,7 @@ body {
         flex-direction: column;
         padding-left: 30%;
         padding-right: 30%;
+        
         .head-container {
             display: flex;
             height: 100px;
@@ -109,6 +139,8 @@ body {
             flex-direction: column;
             background-color: white;
             height: auto;
+            text-align: justify;
+            padding: 5%;
         }
     }
 
@@ -130,6 +162,12 @@ body.dark-mode {
     line-height: 1.7;
     font-size: 1rem;
     color: $light-gray;
+    p.dark-mode {
+        height: 50px;
+        margin-top: 35px;
+        color: yellow;
+
+    }
     .card {
         background-color: $light-blue;
         height: 200px;
@@ -169,6 +207,55 @@ body.dark-mode {
             font-weight: bold;
             color: $purple;
             padding: 2%;
+        }
+    }
+
+    .job-page {
+        display: flex;
+        flex-direction: column;
+        padding-left: 30%;
+        padding-right: 30%;
+       
+        .head-container {
+            display: flex;
+            height: 100px;
+            color: $light-gray;
+            background-color: $light-blue;
+            justify-content: space-around;
+            
+            
+            .image {
+                img {
+                    height: auto;
+                    width: 100px;
+                    border-radius: 10%;
+                    margin-top: 2%;
+                }
+            }
+
+            .company-name {
+                font-weight: bold;
+                color: $light-gray;
+                padding: 2%;
+                margin-top: 2%;
+                font-size: 1.5rem;
+            }
+            .company-site {
+                color: $purple;
+                padding: 2%;
+                margin-top: 2%;
+
+            }
+        }
+
+        .description-container {
+            display: flex;
+            flex-direction: column;
+            height: auto;
+            text-align: justify;
+            padding: 5%;
+            color: $light-gray;
+            background-color: $light-blue;
         }
     }
 }

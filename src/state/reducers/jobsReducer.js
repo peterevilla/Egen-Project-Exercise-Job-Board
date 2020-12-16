@@ -3,6 +3,7 @@ import {
   GET_JOBS_START,
   GET_JOBS_SUCCESS,
   GET_JOBS_ERROR,
+  GET_JOBS_SUCCESS_SEARCH,
 } from '../actions/getJobs';
 
 const initialState = {
@@ -15,8 +16,11 @@ const jobsReducer = (state = initialState, action) => {
     case GET_JOBS_START:
       return { ...state, getJobsStatus: requestStatus.loading };
     case GET_JOBS_SUCCESS:
-      const newState = action.payload;
-      return {...state, jobs: newState, getJobsStatus: requestStatus.success };
+      const newState = [...state.jobs,... action.payload]
+      return {jobs: newState, getJobsStatus: requestStatus.success };
+    case GET_JOBS_SUCCESS_SEARCH:
+      
+      return {jobs: action.payload, getJobsStatus: requestStatus.success };
     case GET_JOBS_ERROR:
       return { ...state, getJobsStatus: requestStatus.error };
 

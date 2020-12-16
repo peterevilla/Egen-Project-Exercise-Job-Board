@@ -7,11 +7,11 @@ import '../../styles.scss';
 
 const MainPage = ({ status, jobs, getJobs }) => {
   const [isBottom, setIsBottom] = useState(false);
-  const [allJobs, setAlljobs] = useState(jobs)
+  const [pageNumber, setPageNumber] = useState(1)
 
   useEffect(() => {
-    getJobs({ page: 0, description: "", location: "", type: "true" });
-    setAlljobs(jobs)
+    getJobs({ page: pageNumber, description: "", location: "", type: "true" });
+    setPageNumber(pageNumber + 1)
     setIsBottom(false);
   }, []);
   
@@ -29,11 +29,10 @@ const MainPage = ({ status, jobs, getJobs }) => {
 
   useEffect(() => {
     if (isBottom) {
-      getJobs({ page: 2, description: "", location: "", type: "true" });
+    
+      getJobs({ page: pageNumber, description: "", location: "", type: "true" });
       
     }
-    setAlljobs(allJobs.concat(jobs))
-    // setIsBottom(false);
   }, [isBottom]);
 
   useEffect(() => {
@@ -41,7 +40,7 @@ const MainPage = ({ status, jobs, getJobs }) => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-console.log(jobs)
+console.log(pageNumber)
   return (
     <div>
         <div className="main">
@@ -52,7 +51,7 @@ console.log(jobs)
         </Link>
       ))}
       </div>
-      {status === "loading" && <p>loading more jobs...</p>}
+      {status === "loading" && <p>loading jobs...</p>}
      
     </div>
   );

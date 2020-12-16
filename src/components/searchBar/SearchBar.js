@@ -1,8 +1,9 @@
 import React, {useState} from 'react'
 import { connect } from 'react-redux';
+import getJobsSearch from '../../state/actions/fromSearch';
 import getJobs from '../../state/actions/getJobs'
 
-const SearchBar = ({getJobs, status}) => {
+const SearchBar = ({getJobsSearch, status}) => {
     const [ params, setParams] = useState({page: 0, description: "", location: "", type: "true"})
 
     const searchHandle = e => {
@@ -11,7 +12,7 @@ const SearchBar = ({getJobs, status}) => {
       };
       const submitHandler = (e) => {
           e.preventDefault()
-          getJobs(params)
+          getJobsSearch(params)
         
       };
     return (
@@ -47,4 +48,4 @@ const mapStateToProps = state => ({
     status: state.jobs.getJobsStatus, 
   });
   
-  export default connect(mapStateToProps, { getJobs})(SearchBar);
+  export default connect(mapStateToProps, { getJobsSearch})(SearchBar);
