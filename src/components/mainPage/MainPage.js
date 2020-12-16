@@ -7,7 +7,6 @@ import "../../styles.scss";
 
 const MainPage = ({ status, jobs, getJobs }) => {
   const [isBottom, setIsBottom] = useState(false);
-  //   const [pageNumber, setPageNumber] = useState(1)
   const pageNumber = useRef(1);
 
   //FETCHING DATA ONCE PAGE RENDERS
@@ -18,8 +17,6 @@ const MainPage = ({ status, jobs, getJobs }) => {
       location: "",
       type: "true",
     });
-    pageNumber.current = pageNumber.current + 1;
-    // setIsBottom(false);
   }, []);
 
   //FUNCTION TO HANDLE SCROLLING EVENT ONCE PAGE HITS BOTTOM
@@ -32,20 +29,26 @@ const MainPage = ({ status, jobs, getJobs }) => {
       document.body.scrollHeight;
     if (scrollTop + window.innerHeight + 50 >= scrollHeight) {
       setIsBottom(true);
+      pageNumber.current = pageNumber.current + 1;
     }
   }
-//FETCHING DATA ONCE THE PAGE HITS BOTTOM
-  useEffect(() => {
-    if (isBottom) {
+  //FETCHING DATA ONCE THE PAGE HITS BOTTOM
+  const addJobs = () => {
+    if (jobs.length !== 0) {
       getJobs({
         page: pageNumber.current,
         description: "",
         location: "",
         type: "true",
       });
-      pageNumber.current = pageNumber.current + 1;
+
+      setIsBottom(false);
     }
-    
+  };
+  useEffect(() => {
+    if (isBottom) {
+      addJobs();
+    }
   }, [isBottom]);
 
   useEffect(() => {
@@ -53,7 +56,6 @@ const MainPage = ({ status, jobs, getJobs }) => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  console.log(pageNumber.current);
   return (
     <div>
       <div className="main">

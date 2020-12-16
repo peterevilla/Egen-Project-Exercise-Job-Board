@@ -1,300 +1,273 @@
-$purple: #5865E0;
-$light-gray: #F5F6F8;
+$purple: #5865e0;
+$light-gray: #f5f6f8;
 $dark-blue: #131822;
-$light-blue: #19212D;
+$light-blue: #19212d;
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    line-height: 1.7;
-    font-size: 1rem;
-    background-color: $light-gray;
-    .App {
-        text-align: center;
-      }
-    @media only screen and (max-width: 600px) {
-
-        .form-container{
-            padding-left: 20%;
-            padding-right: 20%;
-        }
-        .main {
-            justify-content: center;
-        }
-        .job-page {
-
-          
-            .description-container {
-    
-                flex-direction: column;
-                background-color: white;
-                height: auto;
-                text-align: justify;
-                width: 100%;
-    
-                
-            }
-        }
-
-       
-
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.7;
+  font-size: 1rem;
+  background-color: $light-gray;
+  .App {
+    text-align: center;
+  }
+  @media only screen and (max-width: 600px) {
+   
+    .form-container {
+      padding-left: 20%;
+      padding-right: 20%;
     }
-
-.form-container{
-    margin: 0.5%;
-    .form {
-    
-        background-color: #fafafa;
-        border:0;
-        box-shadow:0 0 4px rgba(0,0,0,0.3);
-        transition: .3s box-shadow;
-        height: 30px;
-        width: 200px;
-        font-size: x-small;
-        
-
-      &:hover {
-        box-shadow:0 0 4px rgba(0,0,0,0.5);
-      }
-   }
-}
-
-
-  
-
-   .search-btn {
-       height: 30px;
-       background-color: $purple;
-       color: $light-gray;
-       border: none;
-   }
-    p.dark-mode {
-        height: 50px;
-        margin-top: 35px;
-
-
-    }
-    .nav-bar {
-        background-color: $purple;
-        height: 100px;
-        display: flex;
-        justify-content: space-around;
-        color: $light-gray;
-        border-radius: 5px 20px 5px;
-
-        h1 {
-            text-decoration: none;
-            color: $light-gray;
-        }
-    }
-
     .main {
-        display: flex;
-        flex-wrap: wrap;
-        .card {
-            background-color: white;
-            height: 200px;
-            width: 250px;
-            margin: 5px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            box-shadow:0 0 4px rgba(0,0,0,0.3);
-            &:hover {
-                background-color: powderblue;
-            }
-            .img-container {
-                height: 50px;
-                height: 50px;
-                img {
-                    height: auto;
-                    width: 50px;
-                    border-radius: 10%;
-                    margin-top: -5px;
-                }
-            }
-            
-            .job-type {
-                font-size: 0.8rem;
-                color: gray;
-                font-weight: lighter;
-                padding: 2%;
-            }
-
-            .job-title {
-                font-weight: bold;
-                color: $light-blue;
-                padding: 2%;
-            }
-            .job-location {
-                font-size: 0.8rem;
-                font-weight: bold;
-                color: $purple;
-                padding: 2%;
-            }
-        }
+      justify-content: center;
     }
-
     .job-page {
         display: flex;
-        flex-direction: column;
-        padding-left: 30%;
-        padding-right: 30%;
-        
-        .head-container {
-            display: flex;
-            height: 100px;
-            background-color: white;
-            justify-content: space-around;
-            
-            
-            .image {
-                img {
-                    height: auto;
-                    width: 100px;
-                    border-radius: 10%;
-                    margin-top: 2%;
-                }
-            }
-
-            .company-name {
-                font-weight: bold;
-                color: $light-blue;
-                padding: 2%;
-                margin-top: 2%;
-                font-size: 1.5rem;
-            }
-            .company-site {
-                color: $purple;
-                padding: 2%;
-                margin-top: 2%;
-
-            }
-        }
-
-        .description-container {
-            display: flex;
-            flex-direction: column;
-            background-color: white;
-            height: auto;
-            text-align: justify;
-            padding: 5%;
-        }
-    }
+        justify-content: center;
 
     
+        .head-container {
+            width: 300px;
+ 
+        }
+      .description-container {
+        flex-direction: column;
+        background-color: white;
+        height: auto;
+        text-align: justify;
+        width: 280px;
+ 
+      }
+    }
   }
 
+  .form-container {
+    margin: 0.5%;
+    .form {
+      background-color: #fafafa;
+      border: 1px solid $light-gray;
+      transition: 0.3s box-shadow;
+      height: 30px;
+      width: 200px;
+      font-size: x-small;
+    }
+  }
 
+  .search-btn {
+    height: 30px;
+    background-color: $purple;
+    color: $light-gray;
+    border: none;
+  }
+  p.dark-mode {
+    height: 50px;
+    margin-top: 35px;
+  }
+  .nav-bar {
+    background-color: $purple;
+    height: 100px;
+    display: flex;
+    justify-content: space-around;
+    color: $light-gray;
+    border-radius: 5px 20px 5px;
 
+    h1 {
+      text-decoration: none;
+      color: $light-gray;
+    }
+  }
 
+  .main {
+    display: flex;
+    flex-wrap: wrap;
+    .card {
+      background-color: white;
+      height: 200px;
+      width: 250px;
+      margin: 5px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      box-shadow: 0 0 4px rgba(0, 0, 0, 0.3);
+      &:hover {
+        background-color: powderblue;
+      }
+      .img-container {
+        height: 50px;
+        height: 50px;
+        img {
+          height: auto;
+          width: 50px;
+          border-radius: 10%;
+          margin-top: -5px;
+        }
+      }
 
+      .job-type {
+        font-size: 0.8rem;
+        color: gray;
+        font-weight: lighter;
+        padding: 2%;
+      }
 
+      .job-title {
+        font-weight: bold;
+        color: $light-blue;
+        padding: 2%;
+      }
+      .job-location {
+        font-size: 0.8rem;
+        font-weight: bold;
+        color: $purple;
+        padding: 2%;
+      }
+    }
+  }
 
+  .job-page {
+    display: flex;
+    flex-direction: column;
+    padding-left: 30%;
+    padding-right: 30%;
 
+    .head-container {
+      display: flex;
+      height: 100px;
+      background-color: white;
+      justify-content: space-around;
 
+      .image {
+        img {
+          height: auto;
+          width: 100px;
+          border-radius: 10%;
+          margin-top: 2%;
+        }
+      }
+
+      .company-name {
+        font-weight: bold;
+        color: $light-blue;
+        padding: 2%;
+        margin-top: 2%;
+        font-size: 1.5rem;
+      }
+      .company-site {
+        color: $purple;
+        padding: 2%;
+        margin-top: 2%;
+      }
+    }
+
+    .description-container {
+      display: flex;
+      flex-direction: column;
+      background-color: white;
+      height: auto;
+      text-align: justify;
+      padding: 5%;
+    }
+  }
+}
 
 body.dark-mode {
-    background-color: $dark-blue;
-    font-family: Arial, Helvetica, sans-serif;
-    line-height: 1.7;
-    font-size: 1rem;
-    color: $light-gray;
-    p.dark-mode {
-        height: 50px;
-        margin-top: 35px;
-        color: yellow;
-
+  background-color: $dark-blue;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.7;
+  font-size: 1rem;
+  color: $light-gray;
+  p.dark-mode {
+    height: 50px;
+    margin-top: 35px;
+    color: yellow;
+  }
+  .card {
+    background-color: $light-blue;
+    height: 200px;
+    width: 250px;
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    &:hover {
+      background-color: $dark-blue;
     }
-    .card {
-        background-color: $light-blue;
-        height: 200px;
-        width: 250px;
-        margin: 5px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        &:hover {
-            background-color: $dark-blue;
-        }
-        .img-container {
-            height: 50px;
-            height: 50px;
-            img {
-                height: auto;
-                width: 50px;
-                border-radius: 10%;
-                margin-top: -5px;
-            }
-        }
-        
-        .job-type {
-            font-size: 0.8rem;
-            color: gray;
-            font-weight: lighter;
-            padding: 2%;
-        }
-
-        .job-title {
-            font-weight: bold;
-            color: $light-gray;
-            padding: 2%;
-        }
-        .job-location {
-            font-size: 0.8rem;
-            font-weight: bold;
-            color: $purple;
-            padding: 2%;
-        }
+    .img-container {
+      height: 50px;
+      height: 50px;
+      img {
+        height: auto;
+        width: 50px;
+        border-radius: 10%;
+        margin-top: -5px;
+      }
     }
 
-    .job-page {
-        display: flex;
-        flex-direction: column;
-        padding-left: 30%;
-        padding-right: 30%;
-       
-        .head-container {
-            display: flex;
-            height: 100px;
-            color: $light-gray;
-            background-color: $light-blue;
-            justify-content: space-around;
-            
-            
-            .image {
-                img {
-                    height: auto;
-                    width: 100px;
-                    border-radius: 10%;
-                    margin-top: 2%;
-                }
-            }
-
-            .company-name {
-                font-weight: bold;
-                color: $light-gray;
-                padding: 2%;
-                margin-top: 2%;
-                font-size: 1.5rem;
-            }
-            .company-site {
-                color: $purple;
-                padding: 2%;
-                margin-top: 2%;
-
-            }
-        }
-
-        .description-container {
-            display: flex;
-            flex-direction: column;
-            height: auto;
-            text-align: justify;
-            padding: 5%;
-            color: $light-gray;
-            background-color: $light-blue;
-        }
+    .job-type {
+      font-size: 0.8rem;
+      color: gray;
+      font-weight: lighter;
+      padding: 2%;
     }
+
+    .job-title {
+      font-weight: bold;
+      color: $light-gray;
+      padding: 2%;
+    }
+    .job-location {
+      font-size: 0.8rem;
+      font-weight: bold;
+      color: $purple;
+      padding: 2%;
+    }
+  }
+
+  .job-page {
+    display: flex;
+    flex-direction: column;
+    padding-left: 30%;
+    padding-right: 30%;
+
+    .head-container {
+      display: flex;
+      height: 100px;
+      color: $light-gray;
+      background-color: $light-blue;
+      justify-content: space-around;
+
+      .image {
+        img {
+          height: auto;
+          width: 100px;
+          border-radius: 10%;
+          margin-top: 2%;
+        }
+      }
+
+      .company-name {
+        font-weight: bold;
+        color: $light-gray;
+        padding: 2%;
+        margin-top: 2%;
+        font-size: 1.5rem;
+      }
+      .company-site {
+        color: $purple;
+        padding: 2%;
+        margin-top: 2%;
+      }
+    }
+
+    .description-container {
+      display: flex;
+      flex-direction: column;
+      height: auto;
+      text-align: justify;
+      padding: 5%;
+      color: $light-gray;
+      background-color: $light-blue;
+    }
+  }
 }
 
 /**
