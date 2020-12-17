@@ -9,6 +9,7 @@ const JobPage = (props) => {
       return job.id === paramJobId;
     });
     return (
+        <div className="wrap">
         <div className="job-page">
             <div className="head-container">
             <div className="image"><img src={`${job.company_logo}`}></img></div>
@@ -20,6 +21,7 @@ const JobPage = (props) => {
             <div dangerouslySetInnerHTML={{__html: `${job.description}`}} />
             <div dangerouslySetInnerHTML={{__html: `${job.how_to_apply}`}} />
             </div>
+        </div>
         </div>
     )
 }
