@@ -36,12 +36,23 @@ body {
       height: 30px;
       width: 200px;
       font-size: x-small;
+      align-self: center;
     }
     .location-icon {
       color: gray;
       align-self: center;
       margin-left: 5px;
       margin-right: 5px;
+    }
+    .check {
+      font-size: small;
+      color: gray;
+      align-self: center;
+      margin-left: 10px;
+    }
+    .check-box {
+      align-self: center;
+      margin-right: 10px;
     }
   }
 

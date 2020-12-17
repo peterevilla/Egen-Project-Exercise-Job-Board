@@ -8,7 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import '../../styles.scss';
 
 const SearchBar = ({getJobsSearch, status}) => {
-    const [ params, setParams] = useState({page: 0, description: "", location: "", type: "true"})
+    const [ params, setParams] = useState({page: 0, description: "", location: "", type: false})
     const location = useGeoLocation()
     console.log("location", location.coordinates)
 
@@ -22,6 +22,12 @@ const SearchBar = ({getJobsSearch, status}) => {
           getJobsSearch(params)
         
       };
+
+      const handleCheck = e => {
+          setParams({...params, type: e.target.checked})
+      }
+
+      console.log(params)
     return (
         <form className="form-container"  onSubmit={submitHandler}> 
             <input
@@ -45,14 +51,15 @@ const SearchBar = ({getJobsSearch, status}) => {
             >
                 
             </input>
-            <div className="location-icon"><FontAwesomeIcon icon={faLocationArrow} /></div>
+    <div className="location-icon"><FontAwesomeIcon icon={faLocationArrow} /></div>
             
-            {/* <input type="radio"
-            checked={params.type.value === "true"}
-            value={params.type}
-            placeholder="Full time only"
-            onChange={searchHandle}
-            ></input> */}
+            <label className="check"  htmlFor="check">Full time only</label>
+            <input type="checkbox"
+            checked={params.type}
+            id="check"
+            onChange={handleCheck}
+            className="check-box"
+            ></input>
             <button className="search-btn"  type="submit" >Search</button>
             
         </form>
