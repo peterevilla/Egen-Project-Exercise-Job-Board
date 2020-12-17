@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import getJobsSearch from '../../state/actions/fromSearch';
 import useGeoLocation from '../../hooks/useGeoLocation'
 import getJobs from '../../state/actions/getJobs'
+import { faLocationArrow } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import '../../styles.scss';
 
 const SearchBar = ({getJobsSearch, status}) => {
@@ -40,7 +42,11 @@ const SearchBar = ({getJobsSearch, status}) => {
              onChange={searchHandle} 
              className="form" 
 
-            ></input>
+            >
+                
+            </input>
+            <div className="location-icon"><FontAwesomeIcon icon={faLocationArrow} /></div>
+            
             {/* <input type="radio"
             checked={params.type.value === "true"}
             value={params.type}
