@@ -1,11 +1,14 @@
 import React, {useState} from 'react'
 import { connect } from 'react-redux';
 import getJobsSearch from '../../state/actions/fromSearch';
+import useGeoLocation from '../../hooks/useGeoLocation'
 import getJobs from '../../state/actions/getJobs'
 import '../../styles.scss';
 
 const SearchBar = ({getJobsSearch, status}) => {
     const [ params, setParams] = useState({page: 0, description: "", location: "", type: "true"})
+    const location = useGeoLocation()
+    console.log("location", location.coordinates)
 
 
     const searchHandle = e => {

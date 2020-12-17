@@ -8,7 +8,7 @@ import "../../styles.scss";
 const MainPage = ({ status, jobs, getJobs }) => {
   const [isBottom, setIsBottom] = useState(false);
   const pageNumber = useRef(1);
-
+ 
   //FETCHING DATA ONCE PAGE RENDERS
   useEffect(() => {
     getJobs({

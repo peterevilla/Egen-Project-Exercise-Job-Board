@@ -15,7 +15,7 @@ const getJobsSearch = (params) => dispatch => {
 
         axios
         .get(
-            `https://jobs.github.com/positions.json?page=${params.page}&description=${params.description}&location=${params.location}&search=code`
+            `https://jobs.github.com/positions.json?page=${params.page}&description=${params.description}&location=${params.location}&lat=&long=&search=code`
         )
           .then(response => {
            
